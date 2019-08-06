@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
+using System.Data;
+
+namespace EventAnalysis
+{
+    class FileReader
+    {
+        //<subject>
+        // read in a text file
+        // returns dataTable
+        // containing textfile data
+        // </subject>
+        public DataTable readCsv(string filepath, int numColumns)
+        {
+            DataTable dt = new DataTable();
+
+            for(int col = 0; col < numColumns; col++)
+            {
+                dt.Columns.Add(new DataColumn("Column" + (col++).ToString()));
+            }
+
+            string[] lines = File.ReadAllLines(filepath);
+
+            foreach(string line in lines)
+            {
+                var cols = line.Split(',');
+
+                DataRow dr = dt.NewRow();
+
+                for(int index = 0; index < 3; index++)
+                {
+                    dr[index] = cols[index];
+                }
+
+                dt.Rows.Add(dr);
+            }
+            return dt;
+        }
+    }
+}

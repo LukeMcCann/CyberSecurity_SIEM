@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Windows.Forms;
+using System.Data;
+
+namespace EventAnalysis
+{
+    class FileReader
+    {
+        //<subject>
+        // read in a text file
+        // returns dataTable
+        // containing textfile data
+        // </subject>
+        public DataTable readCsv(string filepath)
+        {
+            var dt = new DataTable();
+
+            var fileContents = File.ReadAllLines(filepath);
+
+            var splitFileContents = (from f in fileContents select f.Split(',')).ToArray();
+
+            int max = (from i in splitFileContents select splitFileContents.Count()).Max();
+
+            for(int i = 0; i < max; i++)
+            {
+                dt.Columns.Add();
+            }
+
+            foreach(var line in splitFileContents)
+            {
+                DataRow row = dt.NewRow();
+                row.ItemArray = (Object[])line;
+                dt.Rows.Add(row);
+            }
+
+            return dt;
+        }
+    }
+}

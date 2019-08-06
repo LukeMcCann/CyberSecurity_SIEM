@@ -1,0 +1,5 @@
+c:\users\parki\onedrive\documents\visual studio 2015\Projects\WinEventAnalysis\WinEventAnalysis\bin\Debug\WinEventAnalysis.exe.config
+c:\users\parki\onedrive\documents\visual studio 2015\Projects\WinEventAnalysis\WinEventAnalysis\bin\Debug\WinEventAnalysis.exe
+c:\users\parki\onedrive\documents\visual studio 2015\Projects\WinEventAnalysis\WinEventAnalysis\bin\Debug\WinEventAnalysis.pdb
+c:\users\parki\onedrive\documents\visual studio 2015\Projects\WinEventAnalysis\WinEventAnalysis\obj\Debug\WinEventAnalysis.exe
+c:\users\parki\onedrive\documents\visual studio 2015\Projects\WinEventAnalysis\WinEventAnalysis\obj\Debug\WinEventAnalysis.pdb

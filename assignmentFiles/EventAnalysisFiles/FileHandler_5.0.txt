@@ -1,0 +1,26 @@
+    class FileHandler
+    {
+        public DataTable readCsvToTable(string path)
+        {
+            string lines = null;
+            DataTable dt = new DataTable();
+            StreamReader read = new StreamReader(path);
+            for (int i = 0; i < 95; i++)
+            {
+                dt.Columns.Add();
+            }
+            DataRow dataRow;
+            while ((lines = read.ReadLine()) != null)
+            {
+                string[] row = lines.Split(',');
+                dataRow = dt.NewRow();
+                for (int i = 0; i < row.Length, i++)
+                {
+                    dataRow[i] = row;
+                }
+                dt.Rows.Add(dataRow);
+            }
+            return dt;
+        }
+    }
+}

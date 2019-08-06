@@ -1,0 +1,33 @@
+        public DataTable readCsv(string strFilePath)
+        {
+            StreamReader sr = new StreamReader(strFilePath);
+            string[] file = sr.ReadLine().Split(',');
+
+            DataTable dt = new DataTable();
+            foreach(string item in file)
+            {
+                dt.Columns.Clear();
+
+                if (!dt.Columns.Contains(item))
+                {
+                    dt.Columns.Add(item);
+                }
+                else
+                {
+                    dt.Columns.Add();
+                }
+            }
+
+            while (!sr.EndOfStream)
+            {
+                string[] rows = Regex.Split(sr.ReadLine(), ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                DataRow dr = dt.NewRow();
+                for (int i = 0; i < file.Length; i++)
+                {
+                    dr[i] = rows[i];
+                }
+                dt.Rows.Add(dr);
+            }
+            return dt;
+        }
+    }

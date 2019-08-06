@@ -1,0 +1,111 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Data;
+using System.Text.RegularExpressions;
+using LumenWorks.Framework.IO.Csv;
+using System.Data.OleDb;
+
+namespace EventAnalysis
+{
+    class FileHandler
+    {
+        public DataTable csvParser(string path)
+        {
+
+            DataTable dtable = new DataTable("CsvLogs");
+            dtable.Clear();
+
+            using (OleDbConnection odb = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"" +
+                Path.GetDirectoryName(path) + "\";Extended Properties='text;HDR=yes;FMT=Delimited(,)';"))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(string.Format("select *from [{0}]", new FileInfo(path).Name), odb))
+                {
+                    odb.Open();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtable);
+                    }
+                }
+            }
+            return dtable;
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Data;
+using System.Text.RegularExpressions;
+using LumenWorks.Framework.IO.Csv;
+using System.Data.OleDb;
+
+namespace EventAnalysis
+{
+    class FileHandler
+    {
+        public DataTable csvParser(string path)
+        {
+
+            DataTable dtable = new DataTable("CsvLogs");
+            dtable.Clear();
+
+            using (OleDbConnection odb = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"" +
+                Path.GetDirectoryName(path) + "\";Extended Properties='text;HDR=yes;FMT=Delimited(,)';"))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(string.Format("select *from [{0}]", new FileInfo(path).Name), odb))
+                {
+                    odb.Open();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtable);
+                    }
+                }
+            }
+            return dtable;
+        }
+    }
+}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+using System.Data;
+using System.Text.RegularExpressions;
+using LumenWorks.Framework.IO.Csv;
+using System.Data.OleDb;
+
+namespace EventAnalysis
+{
+    class FileHandler
+    {
+        public DataTable csvParser(string path)
+        {
+
+            DataTable dtable = new DataTable("CsvLogs");
+            dtable.Clear();
+
+            using (OleDbConnection odb = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=\"" +
+                Path.GetDirectoryName(path) + "\";Extended Properties='text;HDR=yes;FMT=Delimited(,)';"))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(string.Format("select *from [{0}]", new FileInfo(path).Name), odb))
+                {
+                    odb.Open();
+                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+                    {
+                        adapter.Fill(dtable);
+                    }
+                }
+            }
+            return dtable;
+        }
+    }
+}
